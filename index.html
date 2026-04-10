@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching Past Tense & Past Participle | Grade 6 English</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --card2:#0f1730;
+      --text:#eaf0ff;
+      --muted:#b9c6ff;
+      --accent:#6ee7ff;
+      --accent2:#a78bfa;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --line:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+      font-synthesis-weight:none;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(110,231,255,.18), transparent 60%),
+                  radial-gradient(900px 600px at 80% 20%, rgba(167,139,250,.18), transparent 55%),
+                  linear-gradient(180deg, #070b14, var(--bg));
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      max-width:var(--max); margin:0 auto; padding:14px 22px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(110,231,255,.95), rgba(167,139,250,.95));
+      box-shadow: var(--shadow);
+    }
+    .navlinks{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end}
+    .pill{
+      padding:8px 12px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(255,255,255,.04);
+      font-weight:600; font-size:14px;
+    }
+    .pill:hover{border-color: rgba(110,231,255,.55)}
+    .hero{
+      padding:34px 0 10px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+      .nav{flex-direction:column; align-items:flex-start}
+      .navlinks{justify-content:flex-start}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    h1{margin:0 0 10px; font-size:34px; line-height:1.15}
+    h2{margin:0 0 10px; font-size:24px}
+    h3{margin:0 0 8px; font-size:18px}
+    p{margin:0 0 10px; color: rgba(234,240,255,.92)}
+    .muted{color:var(--muted)}
+    .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .badge{
+      font-size:13px; font-weight:700;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .badge.accent{border-color: rgba(110,231,255,.45)}
+    .badge.purple{border-color: rgba(167,139,250,.45)}
+    .section{padding:18px 0}
+    .two{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    }
+    @media (max-width: 900px){ .two{grid-template-columns:1fr} }
+    .rule{
+      border-left:4px solid rgba(110,231,255,.7);
+      padding:10px 12px;
+      background: rgba(110,231,255,.06);
+      border-radius: 12px;
+      margin:10px 0;
+    }
+    .rule.purple{
+      border-left-color: rgba(167,139,250,.8);
+      background: rgba(167,139,250,.07);
+    }
+    .examples{
+      display:grid; gap:10px;
+    }
+    .ex{
+      padding:12px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius: 14px;
+      background: rgba(0,0,0,.12);
+    }
+    .ex code{
+      display:block;
+      white-space:pre-wrap;
+      color: rgba(234,240,255,.95);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 14px;
+    }
+    .tabs{
+      display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px;
+    }
+    .tabbtn{
+      cursor:pointer;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:800;
+    }
+    .tabbtn.active{
+      border-color: rgba(110,231,255,.65);
+      background: rgba(110,231,255,.10);
+    }
+    .quiz{
+      display:none;
+      margin-top:10px;
+    }
+    .quiz.active{display:block}
+    .q{
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      margin:10px 0;
+    }
+    .q .prompt{font-weight:800; margin-bottom:8px}
+    .opts{display:grid; gap:8px}
+    .opt{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.10);
+      cursor:pointer;
+      user-select:none;
+    }
+    .opt:hover{border-color: rgba(110,231,255,.45)}
+    .opt input{margin-top:3px}
+    .controls{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:10px;
+    }
+    button{
+      cursor:pointer;
+      border:none;
+      padding:10px 14px;
+      border-radius: 12px;
+      font-weight:900;
+      color:#06101a;
+      background: linear-gradient(135deg, rgba(110,231,255,.95), rgba(167,139,250,.95));
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    }
+    button.secondary{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+    .result{
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-weight:800;
+    }
+    .result.good{border-color: rgba(52,211,153,.55); background: rgba(52,211,153,.10)}
+    .result.bad{border-color: rgba(251,113,133,.55); background: rgba(251,113,133,.10)}
+    .mini{
+      font-size:13px; color: rgba(234,240,255,.85)
+    }
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      margin-top:18px;
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      padding:2px 6px;
+      border-radius: 8px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.18);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:15px;">Past Tense vs Past Participle</div>
+          <div class="mini muted">Grade 6 • English • Writing</div>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Page sections">
+        <a class="pill" href="#home">Home</a>
+        <a class="pill" href="#lesson">Lesson</a>
+        <a class="pill" href="#quizzes">Quizzes</a>
+        <a class="pill" href="#games">Games</a>
+        <a class="pill" href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HOME -->
+    <section id="home" class="hero section">
+      <div class="grid">
+        <div class="card">
+          <h1>Teaching Past Tense and Past Participle</h1>
+          <p class="muted">
+            Welcome! This platform helps Grade 6 learners understand the difference between
+            <strong>past tense</strong> and <strong>past participle</strong> using short explanations,
+            examples, and quizzes with levels.
+          </p>
+
+          <div class="badges" aria-label="Aims">
+            <span class="badge accent">Clear explanations</span>
+            <span class="badge purple">Quiz levels</span>
+            <span class="badge accent">Instant feedback</span>
+            <span class="badge purple">Fun activities</span>
+            <span class="badge">Self-paced learning</span>
+          </div>
+
+          <div class="rule" style="margin-top:14px;">
+            <strong>Problem:</strong> Many Grade 6 learners struggle to tell the difference between
+            past tense and past participles, which affects performance and confidence.
+          </div>
+
+          <div class="rule purple">
+            <strong>Goal:</strong> Help learners practise identifying forms, use them correctly in sentences,
+            and build digital literacy through regular online engagement.
+          </div>
+
+          <p class="mini muted">
+            Tip: Use the menu at the top, or press <span class="kbd">Ctrl</span> + <span class="kbd">F</span> to find words like “irregular”.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Quick Start</h2>
+          <ol class="muted" style="margin:0; padding-left:18px;">
+            <li>Read the <a href="#lesson" class="pill" style="display:inline-block; margin:6px 0;">Lesson</a></li>
+            <li>Try <a href="#quizzes" class="pill" style="display:inline-block; margin:6px 0;">Quiz Level 1</a></li>
+            <li>Move to Level 2 and Level 3</li>
+            <li>Play a game in <a href="#games" class="pill" style="display:inline-block; margin:6px 0;">Games</a></li>
+          </ol>
+
+          <div class="ex" style="margin-top:12px;">
+            <h3 style="margin:0 0 6px;">Mini Check</h3>
+            <p class="mini muted" style="margin:0 0 8px;">Which one usually needs <strong>have/has/had</strong>?</p>
+            <div class="controls">
+              <button class="secondary" type="button" onclick="alert('Answer: Past participle often comes after have/has/had. Example: I have eaten.')">Show answer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSON -->
+    <section id="lesson" class="section">
+      <div class="card">
+        <h2>Lesson: Past Tense vs Past Participle</h2>
+        <p class="muted">
+          Past tense tells what happened in the past. Past participle is a verb form often used with
+          <strong>have/has/had</strong> (perfect tenses) or in the <strong>passive voice</strong>.
+        </p>
+
+        <div class="two" style="margin-top:12px;">
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>1) Past Tense (Simple Past)</h3>
+            <div class="rule">
+              <strong>Use:</strong> action finished in the past.<br/>
+              <strong>Often with:</strong> yesterday, last week, in 2020, ago.
+            </div>
+            <div class="examples">
+              <div class="ex"><code>I walked to school.</code></div>
+              <div class="ex"><code>She ate an apple.</code></div>
+              <div class="ex"><code>They went home.</code></div>
+            </div>
+          </div>
+
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>2) Past Participle</h3>
+            <div class="rule purple">
+              <strong>Use:</strong> with <em>have/has/had</em> OR in passive voice.<br/>
+              <strong>Examples:</strong> has eaten, had gone, was broken.
+            </div>
+            <div class="examples">
+              <div class="ex"><code>I have walked to school.</code></div>
+              <div class="ex"><code>She has eaten an apple.</code></div>
+              <div class="ex"><code>The window was broken.</code></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two" style="margin-top:14px;">
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Regular verbs (easy rule)</h3>
+            <p class="muted">For many regular verbs, past tense and past participle look the same: <strong>-ed</strong>.</p>
+            <div class="ex"><code>play → played (past) / played (past participle)</code></div>
+            <div class="ex"><code>clean → cleaned (past) / cleaned (past participle)</code></div>
+          </div>
+
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Irregular verbs (must practise)</h3>
+            <p class="muted">Some verbs change differently. You must learn them.</p>
+            <div class="ex"><code>go → went (past) / gone (past participle)</code></div>
+            <div class="ex"><code>eat → ate (past) / eaten (past participle)</code></div>
+            <div class="ex"><code>write → wrote (past) / written (past participle)</code></div>
+          </div>
+        </div>
+
+        <div class="rule" style="margin-top:14px;">
+          <strong>Super Summary:</strong><br/>
+          • Past tense = finished action (I <strong>went</strong>).<br/>
+          • Past participle = used with have/has/had or passive (I have <strong>gone</strong> / It was <strong>broken</strong>).
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZZES -->
+    <section id="quizzes" class="section">
+      <div class="card">
+        <h2>Interactive Quizzes (Levels)</h2>
+        <p class="muted">Choose a level. Answer the questions, then click <strong>Check Score</strong> for instant feedback.</p>
+
+        <div class="tabs" role="tablist" aria-label="Quiz levels">
+          <button class="tabbtn active" type="button" data-target="quiz1">Level 1 (Easy)</button>
+          <button class="tabbtn" type="button" data-target="quiz2">Level 2 (Medium)</button>
+          <button class="tabbtn" type="button" data-target="quiz3">Level 3 (Hard)</button>
+        </div>
+
+        <!-- LEVEL 1 -->
+        <div id="quiz1" class="quiz active" aria-label="Level 1 quiz">
+          <div class="q" data-answer="A">
+            <div class="prompt">1) Choose the past tense sentence:</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q1" value="A"> I walked to school yesterday.</label>
+              <label class="opt"><input type="radio" name="q1" value="B"> I have walked to school.</label>
+            </div>
+          </div>
+
+          <div class="q" data-answer="B">
+            <div class="prompt">2) Choose the sentence with a past participle:</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q2" value="A"> She ate an apple.</label>
+              <label class="opt"><input type="radio" name="q2" value="B"> She has eaten an apple.</label>
+            </div>
+          </div>
+
+          <div class="q" data-answer="A">
+            <div class="prompt">3) Regular verb: “play” — which is past tense?</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q3" value="A"> played</label>
+              <label class="opt"><input type="radio" name="q3" value="B"> playing</label>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button type="button" onclick="checkQuiz('quiz1')">Check Score</button>
+            <button class="secondary" type="button" onclick="resetQuiz('quiz1')">Reset</button>
+            <div id="quiz1Result" class="result" aria-live="polite">Score: —</div>
+          </div>
+        </div>
+
+        <!-- LEVEL 2 -->
+        <div id="quiz2" class="quiz" aria-label="Level 2 quiz">
+          <div class="q" data-answer="B">
+            <div class="prompt">1) Irregular verb: go → went / gone. Choose the past participle:</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q4" value="A"> went</label>
+              <label class="opt"><input type="radio" name="q4" value="B"> gone</label>
+            </div>
+          </div>
+
+          <div class="q" data-answer="A">
+            <div class="prompt">2) Choose the correct sentence (past tense):</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q5" value="A"> They wrote a story last night.</label>
+              <label class="opt"><input type="radio" name="q5" value="B"> They have wrote a story.</label>
+            </div>
+          </div>
+
+          <div class="q" data-answer="B">
+            <div class="prompt">3) Choose the correct sentence (past participle with “has”):</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q6" value="A"> He has went to town.</label>
+              <label class="opt"><input type="radio" name="q6" value="B"> He has gone to town.</label>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button type="button" onclick="checkQuiz('quiz2')">Check Score</button>
+            <button class="secondary" type="button" onclick="resetQuiz('quiz2')">Reset</button>
+            <div id="quiz2Result" class="result" aria-live="polite">Score: —</div>
+          </div>
+        </div>
+
+        <!-- LEVEL 3 -->
+        <div id="quiz3" class="quiz" aria-label="Level 3 quiz">
+          <div class="q" data-answer="A">
+            <div class="prompt">1) Passive voice uses a past participle. Choose the correct sentence:</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q7" value="A"> The cake was eaten by the children.</label>
+              <label class="opt"><input type="radio" name="q7" value="B"> The cake ate by the children.</label>
+            </div>
+          </div>
+
+          <div class="q" data-answer="B">
+            <div class="prompt">2) Choose the correct past participle of “write”:</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q8" value="A"> wrote</label>
+              <label class="opt"><input type="radio" name="q8" value="B"> written</label>
+            </div>
+          </div>
+
+          <div class="q" data-answer="B">
+            <div class="prompt">3) Choose the correct sentence (perfect tense):</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q9" value="A"> I had went to the shop before lunch.</label>
+              <label class="opt"><input type="radio" name="q9" value="B"> I had gone to the shop before lunch.</label>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button type="button" onclick="checkQuiz('quiz3')">Check Score</button>
+            <button class="secondary" type="button" onclick="resetQuiz('quiz3')">Reset</button>
+            <div id="quiz3Result" class="result" aria-live="polite">Score: —</div>
+          </div>
+        </div>
+
+        <p class="mini muted" style="margin-top:12px;">
+          Improvement included: <strong>different quiz levels</strong> + <strong>short summarized explanations</strong> + <strong>instant feedback</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- GAMES / ACTIVITIES -->
+    <section id="games" class="section">
+      <div class="card">
+        <h2>Games & Fun Activities</h2>
+        <p class="muted">These activities make grammar practice enjoyable and build confidence.</p>
+
+        <div class="two" style="margin-top:12px;">
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Game 1: Sort It!</h3>
+            <p class="muted">Type a verb and see its forms. Then decide: past tense or past participle?</p>
+
+            <div class="q">
+              <div class="prompt">Try a verb (go, eat, write, play, clean):</div>
+              <div class="controls">
+                <input id="verbInput" type="text" placeholder="Type a verb..." style="flex:1; min-width:220px; padding:10px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(0,0,0,.18); color:var(--text);" />
+                <button type="button" onclick="showVerb()">Show forms</button>
+              </div>
+              <div id="verbOut" class="result" style="margin-top:10px;">Forms: —</div>
+              <p class="mini muted" style="margin-top:8px;">Tip: Irregular verbs change differently (go→went/gone).</p>
+            </div>
+          </div>
+
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Game 2: Sentence Fixer</h3>
+            <p class="muted">Click to reveal a corrected sentence.</p>
+
+            <div class="examples">
+              <div class="ex">
+                <code>Wrong: He has went to town.</code>
+                <div class="controls">
+                  <button class="secondary" type="button" onclick="alert('Correct: He has gone to town.')">Reveal fix</button>
+                </div>
+              </div>
+              <div class="ex">
+                <code>Wrong: The window break yesterday.</code>
+                <div class="controls">
+                  <button class="secondary" type="button" onclick="alert('Correct: The window broke yesterday. / Passive: The window was broken.')">Reveal fix</button>
+                </div>
+              </div>
+              <div class="ex">
+                <code>Wrong: They have wrote a story.</code>
+                <div class="controls">
+                  <button class="secondary" type="button" onclick="alert('Correct: They have written a story.')">Reveal fix</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rule purple" style="margin-top:14px;">
+          <strong>Optional class activity:</strong> “Interactive Reading Circles” — teams explain characteristics of past tense vs past participle using examples.
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / PROJECT DETAILS -->
+    <section id="about" class="section">
+      <div class="card">
+        <h2>About This Project</h2>
+        <p class="muted">
+          This platform was designed to help learners practise independently, improve confidence, and
+          strengthen digital literacy through online learning and quizzes.
+        </p>
+
+        <div class="two" style="margin-top:12px;">
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Project Information</h3>
+            <div class="ex"><code>
+NAME OF SCHOOL: Maranatha Adventist Primary
+CENTER NUMBER: 107750
+CANDIDATE NUMBER: 0122
+NAME OF LEARNER: Moyo Babongile
+LEVEL: Grade 6
+LEARNING AREA: English
+SYLLABUS TOPIC: Writing
+SUB TOPIC: Past tenses and past participle
+PROJECT TITLE: Teaching Past Tense and Past Participle
+            </code></div>
+          </div>
+
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Evaluation & Recommendations</h3>
+            <ul class="muted" style="margin:0; padding-left:18px;">
+              <li>Helps learners distinguish past tense vs past participle.</li>
+              <li>Makes practice easier using online resources and quizzes.</li>
+              <li><strong>Challenges:</strong> coding skills, access to stable internet, distractions.</li>
+              <li><strong>Recommendations:</strong> add more quiz questions and include a variety of topics.</li>
+            </ul>
+            <div class="rule" style="margin-top:12px;">
+              <strong>Next improvement idea:</strong> Add a “Progress Tracker” (stars/badges) for motivation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <div class="card">
+        <h3 style="margin-bottom:6px;">How to use this file</h3>
+        <ol class="muted" style="margin:0; padding-left:18px;">
+          <li>Copy this code into Notepad++</li>
+          <li>Save as: <strong>past-tense-platform.html</strong></li>
+          <li>Double-click the file to open in Chrome/Edge/Firefox</li>
+        </ol>
+        <p class="mini muted" style="margin-top:10px;">
+          If you want a real online link, you must upload this HTML file to a web host (school server, GitHub Pages, etc.).
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Tabs
+    const tabButtons = document.querySelectorAll('.tabbtn');
+    const quizzes = document.querySelectorAll('.quiz');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        quizzes.forEach(q => q.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+        // scroll a bit to keep quiz visible on mobile
+        document.getElementById('quizzes').scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    function checkQuiz(quizId){
+      const quiz = document.getElementById(quizId);
+      const questions = quiz.querySelectorAll('.q');
+      let score = 0;
+      let total = questions.length;
+
+      questions.forEach((q, idx) => {
+        const ans = q.dataset.answer;
+        const chosen = q.querySelector('input[type="radio"]:checked');
+        const isCorrect = chosen && chosen.value === ans;
+
+        // simple visual feedback
+        q.style.borderColor = isCorrect ? 'rgba(52,211,153,.55)' : 'rgba(251,113,133,.55)';
+        q.style.background = isCorrect ? 'rgba(52,211,153,.08)' : 'rgba(251,113,133,.06)';
+
+        if(isCorrect) score++;
+      });
+
+      const result = document.getElementById(quizId + 'Result');
+      result.textContent = `Score: ${score} / ${total}`;
+
+      if(score === total){
+        result.className = 'result good';
+        result.textContent += ' — Excellent!';
+      } else if(score >= Math.ceil(total*0.6)){
+        result.className = 'result';
+        result.textContent += ' — Good effort. Try again to improve!';
+      } else {
+        result.className = 'result bad';
+        result.textContent += ' — Keep practising. Read the Lesson and retry.';
+      }
+    }
+
+    function resetQuiz(quizId){
+      const quiz = document.getElementById(quizId);
+      quiz.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+      quiz.querySelectorAll('.q').forEach(q => {
+        q.style.borderColor = 'rgba(255,255,255,.12)';
+        q.style.background = 'rgba(255,255,255,.03)';
+      });
+      const result = document.getElementById(quizId + 'Result');
+      result.className = 'result';
+      result.textContent = 'Score: —';
+    }
+
+    // Verb forms mini-game
+    const verbMap = {
+      go: {past:'went', pp:'gone'},
+      eat: {past:'ate', pp:'eaten'},
+      write: {past:'wrote', pp:'written'},
+      play: {past:'played', pp:'played'},
+      clean: {past:'cleaned', pp:'cleaned'},
+      break: {past:'broke', pp:'broken'},
+      see: {past:'saw', pp:'seen'},
+      take: {past:'took', pp:'taken'}
+    };
+
+    function showVerb(){
+      const input = document.getElementById('verbInput').value.trim().toLowerCase();
+      const out = document.getElementById('verbOut');
+
+      if(!input){
+        out.className = 'result bad';
+        out.textContent = 'Forms: Please type a verb first.';
+        return;
+      }
+
+      const v = verbMap[input];
+      if(!v){
+        out.className = 'result';
+        out.textContent = `Forms: I don't have "${input}" saved yet. Try: go, eat, write, play, clean, break, see, take.`;
+        return;
+      }
+
+      out.className = 'result good';
+      out.textContent = `Forms: ${input} → past tense: ${v.past} | past participle: ${v.pp}`;
+    }
+  </script>
+</body>
+</html>
