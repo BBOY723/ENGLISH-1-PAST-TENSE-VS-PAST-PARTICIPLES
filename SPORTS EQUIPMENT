@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Equipment Safety Manual | Maranatha Adventist Primary</title>
+  <style>
+    :root{
+      --bg:#071018;
+      --card:#0d1b2a;
+      --card2:#0b1624;
+      --text:#eaf2ff;
+      --muted:#b7c7e6;
+      --accent:#4dd6ff;
+      --accent2:#a78bfa;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --line:rgba(255,255,255,.12);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1100px 650px at 15% 10%, rgba(77,214,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,.16), transparent 55%),
+        linear-gradient(180deg, #050a10, var(--bg));
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(5,10,16,.70);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      max-width:var(--max); margin:0 auto; padding:14px 22px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(77,214,255,.95), rgba(167,139,250,.95));
+      box-shadow: var(--shadow);
+    }
+    .navlinks{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end}
+    .pill{
+      padding:8px 12px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(255,255,255,.04);
+      font-weight:700; font-size:14px;
+    }
+    .pill:hover{border-color: rgba(77,214,255,.55)}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .section{padding:18px 0}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+    .three{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
+    @media (max-width: 980px){
+      .grid,.two,.three{grid-template-columns:1fr}
+      .nav{flex-direction:column; align-items:flex-start}
+      .navlinks{justify-content:flex-start}
+    }
+    h1{margin:0 0 10px; font-size:34px; line-height:1.15}
+    h2{margin:0 0 10px; font-size:24px}
+    h3{margin:0 0 8px; font-size:18px}
+    p{margin:0 0 10px; color: rgba(234,242,255,.92)}
+    .muted{color:var(--muted)}
+    .badgeRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .badge{
+      font-size:13px; font-weight:800;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .badge.accent{border-color: rgba(77,214,255,.45)}
+    .badge.purple{border-color: rgba(167,139,250,.45)}
+    .rule{
+      border-left:4px solid rgba(77,214,255,.75);
+      padding:10px 12px;
+      background: rgba(77,214,255,.06);
+      border-radius: 12px;
+      margin:10px 0;
+    }
+    .rule.purple{
+      border-left-color: rgba(167,139,250,.85);
+      background: rgba(167,139,250,.07);
+    }
+    .rule.warn{
+      border-left-color: rgba(251,191,36,.85);
+      background: rgba(251,191,36,.08);
+    }
+    .list{margin:0; padding-left:18px; color:var(--muted)}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      padding:2px 6px;
+      border-radius: 8px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.18);
+    }
+    .equip{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(0,0,0,.12);
+      padding:14px;
+    }
+    .equipHead{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+    }
+    .tag{
+      font-size:12px; font-weight:900;
+      padding:5px 9px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      white-space:nowrap;
+    }
+    .tag.safe{border-color: rgba(52,211,153,.55); background: rgba(52,211,153,.10)}
+    .tag.care{border-color: rgba(251,191,36,.55); background: rgba(251,191,36,.10)}
+    .steps{margin:0; padding-left:18px; color: rgba(234,242,255,.90)}
+    .steps li{margin:6px 0}
+    .doDont{
+      display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;
+    }
+    @media (max-width: 980px){ .doDont{grid-template-columns:1fr} }
+    .box{
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      padding:12px;
+      background: rgba(255,255,255,.03);
+    }
+    .box.good{border-color: rgba(52,211,153,.55); background: rgba(52,211,153,.08)}
+    .box.bad{border-color: rgba(251,113,133,.55); background: rgba(251,113,133,.06)}
+    .mini{font-size:13px; color: rgba(234,242,255,.85)}
+    .controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:10px;}
+    button{
+      cursor:pointer;
+      border:none;
+      padding:10px 14px;
+      border-radius: 12px;
+      font-weight:900;
+      color:#06101a;
+      background: linear-gradient(135deg, rgba(77,214,255,.95), rgba(167,139,250,.95));
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    }
+    button.secondary{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+    .quizQ{
+      margin:10px 0;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+    }
+    .prompt{font-weight:900; margin-bottom:8px}
+    .opt{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.10);
+      cursor:pointer;
+      user-select:none;
+      margin:8px 0;
+    }
+    .opt:hover{border-color: rgba(77,214,255,.45)}
+    .opt input{margin-top:3px}
+    .result{
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-weight:900;
+    }
+    .result.good{border-color: rgba(52,211,153,.55); background: rgba(52,211,153,.10)}
+    .result.bad{border-color: rgba(251,113,133,.55); background: rgba(251,113,133,.10)}
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      margin-top:18px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:15px;">Sports Equipment Safety Manual</div>
+          <div class="mini muted">Physical Education & Arts • Safety and Health • Grade 6</div>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Page sections">
+        <a class="pill" href="#home">Home</a>
+        <a class="pill" href="#manual">Manual</a>
+        <a class="pill" href="#equipment">Equipment</a>
+        <a class="pill" href="#quiz">Quick Quiz</a>
+        <a class="pill" href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HOME -->
+    <section id="home" class="section">
+      <div class="grid">
+        <div class="card">
+          <h1>Teaching children to use sports equipment correctly</h1>
+          <p class="muted">
+            This simple, colourful, step-by-step manual helps learners practise safely, avoid injuries,
+            and feel confident when using sports equipment during ball games and sports practice.
+          </p>
+
+          <div class="badgeRow" aria-label="Design specifications">
+            <span class="badge accent">Simple language</span>
+            <span class="badge purple">Short instructions</span>
+            <span class="badge accent">Clear steps</span>
+            <span class="badge purple">Diagrams (text-based)</span>
+            <span class="badge">Lower-grade friendly</span>
+          </div>
+
+          <div class="rule" style="margin-top:14px;">
+            <strong>Problem:</strong> Many learners struggle to use basic ball game equipment correctly, which can lead to injuries during sports practices.
+          </div>
+
+          <div class="rule purple">
+            <strong>Intent:</strong> Teach learners the proper use of sports equipment so they can follow instructions easily and become more confident during sports activities.
+          </div>
+
+          <div class="rule warn">
+            <strong>Safety first:</strong> If equipment is broken, wet, sharp, or unsafe, stop and tell the teacher immediately.
+          </div>
+
+          <p class="mini muted">
+            Tip: Use the menu at the top to jump to sections. You can also press <span class="kbd">Ctrl</span> + <span class="kbd">F</span> and search “cones”, “whistle”, or “shin guards”.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Quick Rules (Read before playing)</h2>
+          <ol class="list">
+            <li><strong>Listen</strong> to the teacher’s instructions first.</li>
+            <li><strong>Check</strong> the area: no stones, glass, or holes.</li>
+            <li><strong>Wear</strong> correct gear: shoes tied, shin guards for soccer, no jewellery.</li>
+            <li><strong>Use</strong> equipment for its purpose (cones are not hats, whistles are not toys).</li>
+            <li><strong>Stop</strong> if someone is hurt and call the teacher.</li>
+          </ol>
+
+          <div class="controls">
+            <button type="button" onclick="window.location.href='#manual'">Start the Manual</button>
+            <button class="secondary" type="button" onclick="window.print()">Print this page</button>
+          </div>
+
+          <p class="mini muted" style="margin-top:10px;">
+            Printing makes it work like a booklet/manual (Stage 4 improvement: bold headings + colourful pages).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANUAL -->
+    <section id="manual" class="section">
+      <div class="card">
+        <h2>Step-by-Step Instruction Manual</h2>
+        <p class="muted">
+          Follow these steps every time you do ball games or sports practice.
+          The steps are short and easy to remember.
+        </p>
+
+        <div class="two" style="margin-top:12px;">
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Step 1: Get ready</h3>
+            <ol class="steps">
+              <li>Remove jewellery (rings, earrings, chains).</li>
+              <li>Tie shoelaces properly.</li>
+              <li>Wear the correct gear (example: shin guards for soccer).</li>
+              <li>Warm up (light jogging + stretching).</li>
+            </ol>
+            <div class="doDont">
+              <div class="box good">
+                <strong>DO</strong>
+                <ul class="list">
+                  <li>Ask if you are unsure.</li>
+                  <li>Keep water nearby.</li>
+                </ul>
+              </div>
+              <div class="box bad">
+                <strong>DON’T</strong>
+                <ul class="list">
+                  <li>Play with untied shoes.</li>
+                  <li>Push or trip others.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Step 2: Check the equipment</h3>
+            <ol class="steps">
+              <li>Look for cracks, sharp edges, or broken parts.</li>
+              <li>Check if the ground is slippery or wet.</li>
+              <li>Make sure cones and markers are visible.</li>
+              <li>Tell the teacher if something is unsafe.</li>
+            </ol>
+            <div class="rule">
+              <strong>Remember:</strong> Safe equipment = safe practice.
+            </div>
+          </div>
+        </div>
+
+        <div class="two" style="margin-top:14px;">
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Step 3: Use equipment correctly</h3>
+            <ol class="steps">
+              <li>Use equipment only for the game (no throwing cones, no swinging sticks).</li>
+              <li>Wait your turn in drills.</li>
+              <li>Keep a safe distance when someone is kicking or throwing.</li>
+              <li>Follow the teacher’s whistle or signal.</li>
+            </ol>
+          </div>
+
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Step 4: Pack away safely</h3>
+            <ol class="steps">
+              <li>Carry equipment carefully (do not drag goal posts or nets).</li>
+              <li>Stack cones neatly.</li>
+              <li>Return bibs/vests and count them.</li>
+              <li>Wash hands after practice.</li>
+            </ol>
+            <div class="rule purple">
+              <strong>Good habit:</strong> Packing away properly keeps equipment in good condition and prevents accidents.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPMENT (NOT ONLY BALLS) -->
+    <section id="equipment" class="section">
+      <div class="card">
+        <h2>Equipment Guide (Ball Games)</h2>
+        <p class="muted">
+          This section explains equipment used <strong>around</strong> ball games (not only the ball).
+          Each item has short instructions and safety tips.
+        </p>
+
+        <div class="three" style="margin-top:12px;">
+          <!-- Soccer -->
+          <div class="equip">
+            <div class="equipHead">
+              <div>
+                <h3 style="margin:0 0 4px;">Soccer (Football)</h3>
+                <div class="mini muted">Equipment used around the game</div>
+              </div>
+              <span class="tag safe">Safe Play</span>
+            </div>
+
+            <div class="rule">
+              <strong>Main safety idea:</strong> Protect legs and keep the field clear.
+            </div>
+
+            <ul class="list">
+              <li><strong>Shin guards:</strong> Wear under socks. They protect your shins from kicks.</li>
+              <li><strong>Cones/markers:</strong> Used for dribbling lanes and boundaries. Do not kick them.</li>
+              <li><strong>Goal posts & net:</strong> Do not hang on the net or climb the posts.</li>
+              <li><strong>Bibs/vests:</strong> Wear to show teams. Return them after the game.</li>
+              <li><strong>Whistle:</strong> Only the teacher uses it. Stop when you hear it.</li>
+            </ul>
+
+            <div class="doDont">
+              <div class="box good">
+                <strong>DO</strong>
+                <ul class="list">
+                  <li>Keep space when someone shoots.</li>
+                  <li>Check for holes on the field.</li>
+                </ul>
+              </div>
+              <div class="box bad">
+                <strong>DON’T</strong>
+                <ul class="list">
+                  <li>Slide tackle on hard ground.</li>
+                  <li>Play without shin guards.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Netball -->
+          <div class="equip">
+            <div class="equipHead">
+              <div>
+                <h3 style="margin:0 0 4px;">Netball</h3>
+                <div class="mini muted">Equipment used around the game</div>
+              </div>
+              <span class="tag care">Careful</span>
+            </div>
+
+            <div class="rule purple">
+              <strong>Main safety idea:</strong> Safe passing and safe landing.
+            </div>
+
+            <ul class="list">
+              <li><strong>Netball bibs:</strong> Show positions (GS, GA, etc.). Do not swap without permission.</li>
+              <li><strong>Netball post & ring:</strong> Do not pull or swing on the post.</li>
+              <li><strong>Boundary lines/markers:</strong> Stay inside the court to avoid collisions.</li>
+              <li><strong>Cones:</strong> Used for footwork drills. Step around them, don’t jump on them.</li>
+              <li><strong>Stopwatch/whistle:</strong> Teacher controls time and stops play.</li>
+            </ul>
+
+            <div class="doDont">
+              <div class="box good">
+                <strong>DO</strong>
+                <ul class="list">
+                  <li>Land with knees slightly bent.</li>
+                  <li>Pass with two hands.</li>
+                </ul>
+              </div>
+              <div class="box bad">
+                <strong>DON’T</strong>
+                <ul class="list">
+                  <li>Push when defending.</li>
+                  <li>Run into the post area.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Basketball -->
+          <div class="equip">
+            <div class="equipHead">
+              <div>
+                <h3 style="margin:0 0 4px;">Basketball</h3>
+                <div class="mini muted">Equipment used around the game</div>
+              </div>
+              <span class="tag safe">Safe Play</span>
+            </div>
+
+            <div class="rule">
+              <strong>Main safety idea:</strong> Keep hands safe and avoid collisions.
+            </div>
+
+            <ul class="list">
+              <li><strong>Hoop & backboard:</strong> Do not hang on the rim.</li>
+              <li><strong>Court lines:</strong> Follow boundaries to prevent running into others.</li>
+              <li><strong>Cones:</strong> Used for dribbling drills. Keep your head up while dribbling.</li>
+              <li><strong>Whistle:</strong> Stop immediately when you hear it.</li>
+              <li><strong>Scoreboard/clipboard:</strong> Teacher uses it; learners should not fight over it.</li>
+            </ul>
+
+            <div class="doDont">
+              <div class="box good">
+                <strong>DO</strong>
+                <ul class="list">
+                  <li>Call “mine” when catching.</li>
+                  <li>Keep nails short.</li>
+                </ul>
+              </div>
+              <div class="box bad">
+                <strong>DON’T</strong>
+                <ul class="list">
+                  <li>Push during rebounds.</li>
+                  <li>Run under someone jumping.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two" style="margin-top:14px;">
+          <div class="equip">
+            <div class="equipHead">
+              <div>
+                <h3 style="margin:0 0 4px;">General Equipment (Any Ball Game)</h3>
+                <div class="mini muted">Used in many sports practices</div>
+              </div>
+              <span class="tag care">Careful</span>
+            </div>
+            <ul class="list">
+              <li><strong>Cones:</strong> Place them flat. Keep them away from running lanes if not used.</li>
+              <li><strong>Skipping ropes:</strong> Use enough space. Do not swing near faces.</li>
+              <li><strong>First-aid kit:</strong> Teacher keeps it. Report injuries quickly.</li>
+              <li><strong>Water bottle:</strong> Drink water during breaks to avoid dehydration.</li>
+              <li><strong>Storage bag/box:</strong> Pack equipment neatly to prevent damage.</li>
+            </ul>
+          </div>
+
+          <div class="equip">
+            <div class="equipHead">
+              <div>
+                <h3 style="margin:0 0 4px;">Improvised Demonstration Tools (If equipment is limited)</h3>
+                <div class="mini muted">Creative + recycling idea</div>
+              </div>
+              <span class="tag safe">Safe Play</span>
+            </div>
+            <ul class="list">
+              <li><strong>Cones:</strong> Recycled bottles filled with a little sand (stable).</li>
+              <li><strong>Markers:</strong> Old cloth strips or chalk lines.</li>
+              <li><strong>Soft practice ball:</strong> Rolled plastic bags wrapped with tape (for gentle drills only).</li>
+              <li><strong>Rope:</strong> Old fabric braided into a line for boundaries.</li>
+            </ul>
+            <div class="rule warn">
+              <strong>Important:</strong> Improvised tools must be checked for sharp edges and must be safe for children.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="section">
+      <div class="card">
+        <h2>Quick Safety Quiz</h2>
+        <p class="muted">Answer these questions to check if you understand how to use equipment safely.</p>
+
+        <div id="quizBox">
+          <div class="quizQ" data-answer="B">
+            <div class="prompt">1) In soccer, what equipment protects your legs?</div>
+            <label class="opt"><input type="radio" name="s1" value="A"> A whistle</label>
+            <label class="opt"><input type="radio" name="s1" value="B"> Shin guards</label>
+            <label class="opt"><input type="radio" name="s1" value="C"> A cone</label>
+          </div>
+
+          <div class="quizQ" data-answer="A">
+            <div class="prompt">2) What should you do if a cone is broken and sharp?</div>
+            <label class="opt"><input type="radio" name="s2" value="A"> Stop and tell the teacher</label>
+            <label class="opt"><input type="radio" name="s2" value="B"> Keep playing and ignore it</label>
+            <label class="opt"><input type="radio" name="s2" value="C"> Throw it away yourself</label>
+          </div>
+
+          <div class="quizQ" data-answer="C">
+            <div class="prompt">3) Who should use the whistle during practice?</div>
+            <label class="opt"><input type="radio" name="s3" value="A"> Any learner</label>
+            <label class="opt"><input type="radio" name="s3" value="B"> The team captain only</label>
+            <label class="opt"><input type="radio" name="s3" value="C"> The teacher/coach</label>
+          </div>
+
+          <div class="quizQ" data-answer="B">
+            <div class="prompt">4) What is the safest way to pack away cones?</div>
+            <label class="opt"><input type="radio" name="s4" value="A"> Kick them into a pile</label>
+            <label class="opt"><input type="radio" name="s4" value="B"> Stack them neatly and carry them</label>
+            <label class="opt"><input type="radio" name="s4" value="C"> Leave them on the field</label>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button type="button" onclick="checkSafetyQuiz()">Check Score</button>
+          <button class="secondary" type="button" onclick="resetSafetyQuiz()">Reset</button>
+          <div id="quizResult" class="result" aria-live="polite">Score: —</div>
+        </div>
+
+        <div class="rule purple" style="margin-top:12px;">
+          <strong>Recommendation:</strong> Add more information and demonstrations, and make it more colourful (this page is designed to be colourful and easy to read).
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="card">
+        <h2>Project Details</h2>
+        <p class="muted">
+          This HTML manual follows your chosen idea: a <strong>Step-by-Step Instruction Manual</strong> with bold headings,
+          colourful sections, and clear instructions for lower-grade learners.
+        </p>
+
+        <div class="two" style="margin-top:12px;">
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>Information</h3>
+            <pre style="margin:0; white-space:pre-wrap; color:rgba(234,242,255,.92); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:13px; background:rgba(0,0,0,.14); border:1px solid rgba(255,255,255,.12); padding:12px; border-radius:14px;">
+NAME OF SCHOOL: Maranatha Adventist Primary
+CENTER NUMBER: 107750
+CANDIDATE NUMBER: 0122
+NAME OF LEARNER: Moyo Babongile A
+LEVEL: Grade 6
+LEARNING AREA: Physical Education and Arts
+SYLLABUS TOPIC: Safety and Health
+SUB TOPIC: Safety
+PROJECT TITLE: Teaching children to use sports equipment correctly
+            </pre>
+          </div>
+
+          <div class="card" style="background:rgba(255,255,255,.03); box-shadow:none;">
+            <h3>How to use this file (Stage 5 steps)</h3>
+            <ol class="list">
+              <li>Copy this code into <strong>Notepad++</strong>.</li>
+              <li>Save as: <strong>sports-equipment-safety.html</strong></li>
+              <li>Open the file in <strong>Chrome</strong>.</li>
+            </ol>
+            <div class="rule">
+              <strong>Challenge note:</strong> If you need more information, you can add more equipment cards (e.g., rugby tags, cricket bat safety, hockey stick safety).
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <div class="card">
+        <h3 style="margin-bottom:6px;">Teacher Tip</h3>
+        <p class="muted" style="margin-bottom:10px;">
+          Use this page during practice: open it on a phone/tablet, show the equipment section, then do a short demonstration.
+        </p>
+        <p class="mini muted">
+          If you want a real online link, upload this HTML file to a school server or a hosting service.
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function checkSafetyQuiz(){
+      const box = document.getElementById('quizBox');
+      const qs = box.querySelectorAll('.quizQ');
+      let score = 0;
+
+      qs.forEach(q => {
+        const ans = q.dataset.answer;
+        const chosen = q.querySelector('input[type="radio"]:checked');
+        const ok = chosen && chosen.value === ans;
+
+        q.style.borderColor = ok ? 'rgba(52,211,153,.55)' : 'rgba(251,113,133,.55)';
+        q.style.background = ok ? 'rgba(52,211,153,.08)' : 'rgba(251,113,133,.06)';
+
+        if(ok) score++;
+      });
+
+      const result = document.getElementById('quizResult');
+      result.textContent = `Score: ${score} / ${qs.length}`;
+
+      if(score === qs.length){
+        result.className = 'result good';
+        result.textContent += ' — Excellent safety knowledge!';
+      } else if(score >= Math.ceil(qs.length * 0.6)){
+        result.className = 'result';
+        result.textContent += ' — Good. Review the Equipment Guide and try again.';
+      } else {
+        result.className = 'result bad';
+        result.textContent += ' — Please read the Manual again and retry.';
+      }
+    }
+
+    function resetSafetyQuiz(){
+      const box = document.getElementById('quizBox');
+      box.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+      box.querySelectorAll('.quizQ').forEach(q => {
+        q.style.borderColor = 'rgba(255,255,255,.12)';
+        q.style.background = 'rgba(255,255,255,.03)';
+      });
+      const result = document.getElementById('quizResult');
+      result.className = 'result';
+      result.textContent = 'Score: —';
+    }
+  </script>
+</body>
+</html>
